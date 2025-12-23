@@ -131,7 +131,7 @@ pipeline {
                 echo '--- Publishing Test Reports ---'
                 // This command tells Jenkins to look for XML files and create the graph
                 junit 'test-reports/*.xml'
-                                sh "docker image prune -f"
+                sh "docker image prune -f"
                 // Clean up the image tag to save disk space
                 sh "docker rmi ${NEXUS_REGISTRY}/${IMAGE_NAME}:${params.VERSION_TAG} || true"
             }

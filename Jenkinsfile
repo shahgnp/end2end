@@ -106,9 +106,6 @@ pipeline {
                     echo "Waiting for Spring Boot to initialize..."
                     sh "sleep 10"
 
-                    // Install the reporting library
-                    sh "sudo pip3 install unittest-xml-reporting --break-system-packages"
-
                     // Port Replacement (Same as before)
                     sh "sed -i 's/8080/${APP_PORT}/g' tests/api_collection.json || true"
                     sh "sed -i 's/8080/${APP_PORT}/g' tests/e2e_test.py || true"
